@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Preparedness and Relief</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #login-section, #alerts-section {
+            position: fixed;
+            top: 50px;
+            right: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+            z-index: 999;
+            display: none;
+        }
+        .alert-notification {
+            background-color: #ff4d4d;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .btn-social {
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .google-btn { background-color: #db5837; }
+        .facebook-btn { background-color: #b26742; }
+        .google-btn:hover { background-color: #25c11d; }
+        .facebook-btn:hover { background-color: #275ec4; }
+        #about-section, #feedback-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.jpg" alt="Disaster Preparedness Logo">
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="javascript:void(0);" onclick="toggleAlerts()">Alerts</a>
+            <a href="javascript:void(0);" onclick="toggleAbout()">About Us</a>
+            <a href="#contact">Contact</a>
+            <a href="javascript:void(0);" onclick="toggleLogin()">Login</a>
+            <a href="javascript:void(0);" onclick="toggleFeedback()">Feedback</a>
+        </nav>
+    </header>
+
+    <div class="alert-notification" id="alert-notification">
+        ⚠ Urgent Disaster Alert: Earthquake in Delhi NCR - Magnitude 5.4 ⚠
+    </div>
+
+    <section id="hero">
+        <h2>Disaster Awareness and Preparedness</h2>
+        <div class="carousel">
+            <img src="./images/earthquake.jpg" alt="Earthquake">
+            <img src="./images/flood.jpg" alt="Flood">
+            <img src="./images/wildfire.jpg" alt="Wildfire">
+        </div>
+    </section>
+
+    <section id="login-section">
+        <h2>Login Form</h2>
+        <form action="#">
+            <div class="field">
+                <input type="text" placeholder="Email Address" required>
+            </div>
+            <div class="field">
+                <input type="password" placeholder="Password" required>
+            </div>
+            <div class="field btn">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+        <div class="social-buttons">
+            <button class="btn-social google-btn">Sign in with Google</button>
+            <button class="btn-social facebook-btn">Sign in with Facebook</button>
+        </div>
+    </section>
+
+    <section id="about-section">
+        <h2>About Us</h2>
+        <p>We are dedicated to spreading awareness and providing guidance for disaster preparedness and relief efforts. Our platform offers real-time alerts, tips for staying safe, and resources for emergency situations. Together, we can build safer communities.</p>
+    </section>
+
+    <section id="alerts-section">
+        <h2>Disaster Alerts</h2>
+        <p><strong>Current Alerts:</strong></p>
+        <ul>
+            <li>Earthquake Alert - Region: Delhi NCR - Intensity: 5.4 Magnitude</li>
+            <li>Flood Warning - Region: Assam - Heavy Rainfall Expected</li>
+            <li>Thunderstorm Warning - Region: Mumbai - Strong Winds Forecasted</li>
+        </ul>
+    </section>
+
+    <section id="feedback-section">
+        <h2>Feedback</h2>
+        <form action="submit_feedback.php" method="POST">
+            <div class="field">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="field">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="field">
+                <textarea name="feedback" placeholder="Your Feedback" required></textarea>
+            </div>
+            <div class="field btn">
+                <input type="submit" value="Submit Feedback">
+            </div>
+        </form>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p><strong>Emergency Hotline:</strong> +91 98765 43210</p>
+        <p><strong>Email:</strong> contact@disasterrelief.com</p>
+        <p><strong>Address:</strong> Disaster Relief HQ, New Delhi, India</p>
+    </section>
+
+    <script>
+        function toggleLogin() {
+            const loginSection = document.getElementById('login-section');
+            loginSection.style.display = loginSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleAbout() {
+            const aboutSection = document.getElementById('about-section');
+            aboutSection.style.display = aboutSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleAlerts() {
+            const alertsSection = document.getElementById('alerts-section');
+            alertsSection.style.display = alertsSection.style.display === 'none' ? 'block' : 'none';
+
+            const alertNotification = document.getElementById('alert-notification');
+            alertNotification.style.display = 'block';
+
+            setTimeout(() => {
+                alertNotification.style.display = 'none';
+            }, 5000); // Auto-hide after 5 seconds
+        }
+
+        function toggleFeedback() {
+            const feedbackSection = document.getElementById('feedback-section');
+            feedbackSection.style.display = feedbackSection.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
